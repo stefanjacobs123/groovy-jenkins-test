@@ -3,7 +3,7 @@ def call(String[] services, project) {
     writeFile file: 'deploy.sh', text: deploy
     services.each {
         stage("Deploy $it") {
-            return sh(script: "source deploy.sh kafka", returnStdout: true)
+            return sh(script: "deploy.sh kafka", returnStdout: true)
         }
     }
 }
