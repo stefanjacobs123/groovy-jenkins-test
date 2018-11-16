@@ -1,3 +1,5 @@
-def call(services) {
-    return sh(script: "echo Deploying ${services}", returnStdout: true)
+def call(String[] services) {
+    services.each {
+        return sh(script: "resources/iit/deploy.sh $services", returnStdout: true)
+    }
 }
