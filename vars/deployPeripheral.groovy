@@ -1,5 +1,5 @@
-def call(String[] services) {
+def call(String[] services, project) {
     services.each {
-        return sh(script: "echo deploying $SERVICE in $PROJECT", returnStdout: true)
+        return sh(script: "echo deploying $it in $project", returnStdout: true)
     }
 }
