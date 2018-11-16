@@ -1,7 +1,5 @@
 package com.stefan.iit
 
-class Utilities {
-    static def deployPeripheral(script, args) {
-        script.sh "echo Deploying ${args}"
-    }
+static def deployPeripheral(services) {
+    sh("echo Deploying ${services}")
 }
