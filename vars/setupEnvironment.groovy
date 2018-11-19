@@ -5,22 +5,19 @@ def call() {
     String workdir = pwd() - "/workspace"
     def dir = new File(workdir + "/workspace@libs/groovy-test/resources/com/stefan/iit")
 
-//    def scripts = []
+    def scripts = []
 
     dir.traverse(type: FILES, maxDepth: 0) { script ->
-        echo "hello"
-//        def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
-//        writeFile file: script.name, text: loadScript
-        sh(script: "chmod +x ${script.name}", returnStdout: true)
+        scripts.add(script)
     }
 
-//    for(int i = 0; i < scripts.size(); i++) {
-////        println("I'm here")
-//        def loadScript = libraryResource scripts[i].path - workdir - "/workspace@libs/groovy-test/resources"
-//        writeFile file: scripts[i].name, text: loadScript
-//        println("Handling: ${scripts[i].name}")
-//        return sh(script: "chmod +x ${scripts[i].name}", returnStdout: true)
-//    }
+    for(int i = 0; i < scripts.size(); i++) {
+        println("I'm here")
+        def loadScript = libraryResource scripts[i].path - workdir - "/workspace@libs/groovy-test/resources"
+        writeFile file: scripts[i].name, text: loadScript
+        println("Handling: ${scripts[i].name}")
+        return sh(script: "chmod +x ${scripts[i].name}", returnStdout: true)
+    }
 
 //    scripts.forEach {
 //        println("%%%" + it)
