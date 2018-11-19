@@ -1,4 +1,4 @@
-import groovy.io.FileType
+import static groovy.io.FileType.FILES
 
 def call() {
 
@@ -7,8 +7,8 @@ def call() {
 
     def scripts = []
 
-    dir.eachFileRecurse (FileType.FILES) { script ->
-        scripts << script
+    dir.traverse(type: FILES, maxDepth: 0) { script ->
+        scripts.add(script)
     }
 
     scripts.each {
