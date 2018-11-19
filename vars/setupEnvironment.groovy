@@ -1,5 +1,4 @@
 import static groovy.io.FileType.FILES
-@NonCPS
 def call() {
 
     String workdir = pwd() - "/workspace"
