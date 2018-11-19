@@ -12,11 +12,9 @@ def call() {
     }
 
     for(int i = 0; i < scripts.size(); i++) {
-        println("I'm here")
         def loadScript = libraryResource scripts[i].path - workdir - "/workspace@libs/groovy-test/resources"
         writeFile file: scripts[i].name, text: loadScript
-        println("Handling: ${scripts[i].name}")
-        return sh(script: "chmod +x ${scripts[i].name}", returnStdout: true)
+        sh(script: "chmod +x ${scripts[i].name}", returnStdout: true)
     }
 
 //    scripts.forEach {
