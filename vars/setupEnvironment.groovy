@@ -2,8 +2,7 @@ import groovy.io.FileType
 
 def call() {
 
-    String workdir = pwd()
-    def dir = new File(workdir + "/groovy-jenkins-test/resources/com/stefan/iit")
+    def dir = new File("resources/com/stefan/iit")
 
     dir.eachFileRecurse (FileType.FILES) { File script ->
         def loadScript = libraryResource script.path - "resources/"
