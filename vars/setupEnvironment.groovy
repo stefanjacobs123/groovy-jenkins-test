@@ -11,7 +11,7 @@ def call() {
         echo "hello"
 //        def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
 //        writeFile file: script.name, text: loadScript
-        return sh(script: "chmod +x ${script.name}", returnStdout: true)
+        sh(script: "chmod +x ${script.name}", returnStdout: true)
     }
 
 //    for(int i = 0; i < scripts.size(); i++) {
