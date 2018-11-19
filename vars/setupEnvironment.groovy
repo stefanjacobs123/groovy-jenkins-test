@@ -7,7 +7,7 @@ def call() {
 
     def scripts = []
 
-    dir.eachFileRecurse (FileType.FILES) { File script ->
+    dir.eachFileRecurse (FileType.FILES) { script ->
         scripts << script
     }
 
