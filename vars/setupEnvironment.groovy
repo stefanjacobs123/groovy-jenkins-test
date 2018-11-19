@@ -27,11 +27,8 @@ def call() {
 
     scripts.each {
         File script = it
-        stage("Copy $script") {
-            def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
-            writeFile file: script.name, text: loadScript
-            println("Handling: ${script.name}")
-            return sh(script: "chmod +x ${it.name}", returnStdout: true)
+        stage("Copy ${script.name}") {
+            doSomething(script)
         }
     }
 }
