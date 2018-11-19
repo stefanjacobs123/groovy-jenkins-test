@@ -11,6 +11,6 @@ def call() {
         scripts.add(script)
     }
 
-    doSomething(scripts, workDir)
+    doSomething(scripts, buildRootDir)
 }
 
