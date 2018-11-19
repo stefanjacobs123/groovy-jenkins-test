@@ -11,6 +11,13 @@ def call() {
         scripts.add(script)
     }
 
+    def countFilesAndDirs = 0
+    dir.traverse {
+        countFilesAndDirs++
+    }
+
+    println("&&&" + countFilesAndDirs)
+
     scripts.each {
         println("@@@" + it)
     }
