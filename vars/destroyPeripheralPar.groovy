@@ -1,7 +1,7 @@
 def call(String[] services, project, templatesVersion) {
-    def emptyMap = [:]
+    def map = [:]
     services.each {
         emptyMap.put("Destroy " + it, { sh(script: "./destroy.sh $it $project $templatesVersion") } )
     }
-    parallel(emptyMap)
+    parallel(map)
 }
