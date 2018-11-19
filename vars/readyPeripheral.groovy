@@ -1,7 +1,7 @@
-def call(String[] services, project) {
+def call(String[] services, project, templatesVersion) {
     services.each {
         stage("Ready $it") {
-            return sh(script: "./ready.sh $it $project", returnStdout: true)
+            return sh(script: "./ready.sh $it $project $templatesVersion", returnStdout: true)
         }
     }
 }
