@@ -8,6 +8,7 @@ def call() {
     dir.eachFileRecurse (FileType.FILES) { File script ->
         def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
         writeFile file: script.name, text: loadScript
+        println("Handling: ${script.name}")
         sh "chmod +x ${script.name}"
     }
 }
