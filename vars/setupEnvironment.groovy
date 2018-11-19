@@ -5,10 +5,14 @@ def call() {
     String workdir = pwd() - "/workspace"
     def dir = new File(workdir + "/workspace@libs/groovy-test/resources/com/stefan/iit")
 
-    def scripts = []
+    def scripts = File[]
 
     dir.eachFileRecurse (FileType.FILES) { File script ->
         scripts << script
+    }
+
+    scripts.each {
+        println(it)
     }
 
     scripts.each {
