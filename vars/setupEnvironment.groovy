@@ -11,7 +11,7 @@ def call() {
         scripts.add(script)
     }
 
-    scripts.each {
+    scripts.forEach {
         println("%%%" + it)
         def loadScript = libraryResource it.path - workdir - "/workspace@libs/groovy-test/resources"
         writeFile file: it.name, text: loadScript
