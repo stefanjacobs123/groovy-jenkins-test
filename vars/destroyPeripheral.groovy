@@ -1,7 +1,7 @@
 def call(String[] services, project, templatesVersion) {
+    def emptyMap = [:]
     services.each {
-        stage("Destroy $it") {
-            return sh(script: "./destroy.sh $it $project $templatesVersion", returnStdout: true)
-        }
+        emptyMap.put(it, sh(script: "./destroy.sh $it $project $templatesVersion", returnStdout: true))
     }
+    return emptyMap
 }
