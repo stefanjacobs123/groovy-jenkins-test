@@ -10,7 +10,6 @@ def call() {
     dir.traverse(type: FILES, maxDepth: 0) { script ->
         def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
         writeFile file: script.name, text: loadScript
-        println("Handling: ${script.name}")
         return sh(script: "chmod +x ${script.name}", returnStdout: true)
     }
 
