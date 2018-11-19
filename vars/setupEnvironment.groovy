@@ -1,5 +1,4 @@
 import groovy.io.FileType
-
 @NonCPS //https://issues.jenkins-ci.org/browse/JENKINS-26481
 def call() {
 
