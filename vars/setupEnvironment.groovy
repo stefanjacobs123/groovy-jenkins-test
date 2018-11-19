@@ -1,4 +1,5 @@
 import static groovy.io.FileType.FILES
+@NonCPS
 def call() {
 
     String buildRootDir = pwd() - "/workspace"
