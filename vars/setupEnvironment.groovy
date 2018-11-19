@@ -26,8 +26,8 @@ def call() {
 //    }
 
     scripts.each {
-        stage("Copy $it") {
-            File script = it
+        File script = it
+        stage("Copy $script") {
             def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
             writeFile file: script.name, text: loadScript
             println("Handling: ${script.name}")
