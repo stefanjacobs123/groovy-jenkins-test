@@ -12,7 +12,7 @@ def call() {
     }
 
     scripts.each {
-        println(it)
+        println("@@@" + it)
     }
 
     scripts.each {
