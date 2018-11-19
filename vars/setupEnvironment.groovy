@@ -10,5 +10,3 @@ def call() {
         sh "chmod +x ${script.name}"
     }
 }
-
-call()
