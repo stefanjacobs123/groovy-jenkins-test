@@ -1,4 +1,4 @@
-def call(File[] scripts, String workdir) {
+def call(List<File> scripts, String workdir) {
     scripts.each {
         stage("Setup ${it.name}") {
             def loadScript = libraryResource it.path - workdir - "/workspace@libs/groovy-test/resources"
