@@ -1,5 +1,4 @@
 import static groovy.io.FileType.FILES
-@NonCPS
 def call() {
 
     String workdir = pwd() - "/workspace"
@@ -13,10 +12,10 @@ def call() {
 
     scripts.forEach {
         println("%%%" + it)
-        def loadScript = libraryResource it.path - workdir - "/workspace@libs/groovy-test/resources"
-        writeFile file: it.name, text: loadScript
-        println("Handling: ${it.name}")
-        sh "chmod +x ${it.name}"
+//        def loadScript = libraryResource it.path - workdir - "/workspace@libs/groovy-test/resources"
+//        writeFile file: it.name, text: loadScript
+//        println("Handling: ${it.name}")
+//        sh "chmod +x ${it.name}"
     }
 
 //    scripts.each {
