@@ -5,10 +5,17 @@ def call() {
     String workdir = pwd() - "/workspace"
     def dir = new File(workdir + "/workspace@libs/groovy-test/resources/com/stefan/iit")
 
+    File[] scripts
+
     dir.eachFileRecurse (FileType.FILES) { File script ->
-        def loadScript = libraryResource script.path - workdir - "/workspace@libs/groovy-test/resources"
-        writeFile file: script.name, text: loadScript
-        println("Handling: ${script.name}")
-        sh "chmod +x ${script.name}"
+        scripts << script
+    }
+
+    scripts.each {
+        File file = $it
+        def loadScript = libraryResource file.path - workdir - "/workspace@libs/groovy-test/resources"
+        writeFile file: file.name, text: loadScript
+        println("Handling: ${file.name}")
+        sh "chmod +x ${file.name}"
     }
 }
